@@ -2,16 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BusServiceProvider} from '../../providers/bus-service/bus-service';
 
-interface Bus{
-  type : string;
-  name : string;
-  description : string;
-  latitude : number;
-  longitude : number;
-  accuracy : number;
-  atcocode : string;
-}
-
 @Component({
   selector: 'page-buses',
   templateUrl: 'buses.html'
@@ -22,8 +12,6 @@ export class BusesPage {
     //Data structure to store incoming bus data
     busList = [];
     filteredBusList = [];
-    search: string = '';
-    //private map: any;
 
     //Constructor for home.ts, adds Provider
     constructor(public navCtrl: NavController, private busService: BusServiceProvider) {
@@ -40,11 +28,9 @@ export class BusesPage {
       this.busService.getTravel().subscribe(data => this.refreshList(data.member));
     }
 
-
-
     //Unused search function
     getItems(ev) {
-      this.filteredBusList = this.busList
+      this.filteredBusList = this.busList;
       let val = ev.target.value;
       if (val && val.trim()) {
         this.filteredBusList = this.busList.filter((bus) => {

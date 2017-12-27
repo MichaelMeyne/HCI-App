@@ -1,16 +1,18 @@
 ﻿<ion-header>
   <ion-navbar>
-    <ion-title>
-      Trains
-    </ion-title>
+    <ion-title>Trains</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
-    <ion-item *ngFor="let train of trainList">
-          {{train.name}}
-    </ion-item>
+    <ion-card>
+      <!--This part of code loops through the busList data structure located in home.ts and creates an ion-item for each entry-->
+      <ion-item item-md-divider-color="primary" *ngFor="let train of filteredTrainList">
+        <!--The name of each bus stop printed by referencing the bus.name property-->
+        {{train.name}}
+      </ion-item>
+    </ion-card>
   </ion-list>
 </ion-content>
