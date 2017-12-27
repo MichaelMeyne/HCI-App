@@ -40,11 +40,9 @@ export class BusesPage {
       this.busService.getTravel().subscribe(data => this.refreshList(data.member));
     }
 
-
-
     //Unused search function
     getItems(ev) {
-      this.filteredBusList = this.busList
+      this.filteredBusList = this.busList;
       let val = ev.target.value;
       if (val && val.trim()) {
         this.filteredBusList = this.busList.filter((bus) => {
