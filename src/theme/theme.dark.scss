@@ -17,7 +17,11 @@ $colors: (
     color: color($colors, light);
   }
 
- 
+  button{
+    color: color($colors, light);
+  }
+
+
   .toolbar-title {
     color: color($colors, light);
   }
@@ -25,5 +29,5 @@ $colors: (
   .header .toolbar-background {
     background-color: color($colors, dark);
   }
-  
+
 }

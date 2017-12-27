@@ -14,7 +14,7 @@ import {Observable} from 'rxjs/Observable'
 @Injectable()
 export class BusServiceProvider {
 
-  private url : string = "http://transportapi.com/v3/uk/places.json?query=&type=bus_stop&app_id=91676f07&app_key=e10dc441385db6f855e3e5ad29bcd6c8";
+  private url : string = "http://transportapi.com/v3/uk/places.json?query=&type=bus_stop&query=norwich&app_id=91676f07&app_key=e10dc441385db6f855e3e5ad29bcd6c8";
 
   constructor(private http: Http) {
     console.log('Hello BusServiceProvider Provider');
