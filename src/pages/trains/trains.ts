@@ -28,6 +28,7 @@ export class TrainsPage {
     getItems(ev) {
       this.filteredTrainList = this.trainList;
       let val = ev.target.value;
+
       if (val && val.trim()) {
         this.filteredTrainList = this.trainList.filter((train) => {
           //console.log(train.name);
