@@ -22,7 +22,7 @@ export class TrainsPage {
     getItems(ev) {
       let val = ev.target.value;
       if (!val || !val.trim()) {
-        this.busList = [];
+        this.trainList = [];
         return;
       }
       this.trainList = this.trainList.filter((train) => {
