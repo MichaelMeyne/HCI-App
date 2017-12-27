@@ -21,37 +21,36 @@ export class BusesPage {
 
     //Data structure to store incoming bus data
     busList = [];
+    filteredBusList = [];
     search: string = '';
     //private map: any;
-
 
     //Constructor for home.ts, adds Provider
     constructor(public navCtrl: NavController, private busService: BusServiceProvider) {
       this.getTravel();
     }
 
+    refreshList(newBusList){
+      this.busList = newBusList;
+      this.filteredBusList = newBusList;
+    }
+
     //Get method for the busList
     getTravel() {
-      this.busService.getTravel().subscribe((data => this.busList = data.member));
-
-
+      this.busService.getTravel().subscribe(data => this.refreshList(data.member));
     }
 
-    //Unused filter function for searching the list
-    filterTravel() {
-      this.busList = this.busList.filter((bus) => { return true; });
-    }
+
 
     //Unused search function
     getItems(ev) {
+      this.filteredBusList = this.busList
       let val = ev.target.value;
-      if (!val || !val.trim()) {
-        this.busList = [];
-        return;
+      if (val && val.trim()) {
+        this.filteredBusList = this.busList.filter((bus) => {
+          return (bus.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        });
       }
-      this.busList = this.busList.filter((bus) => {
-        return (bus.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      });
     }
 
 

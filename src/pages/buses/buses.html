@@ -1,17 +1,19 @@
-﻿<ion-header>
+<ion-header>
   <ion-navbar>
     <ion-title>Buses</ion-title>
   </ion-navbar>
-  <!--><ion-buttons end>
-    <button ion-button icon-only (click)="filterTravel()"><ion-icon name="funnel"></ion-icon></button>
-  </ion-buttons>-->
 </ion-header>
 
-<ion-content>
+<ion-content class="bus" no-bounce>
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  <ion-list no-lines>
-    <ion-item *ngFor="let bus of busList">
-          {{bus.name}}
-    </ion-item>
+  <ion-list>
+    <ion-card>
+      <!--This part of code loops through the busList data structure located in home.ts and creates an ion-item for each entry-->
+      <ion-item item-md-divider-color="primary" *ngFor="let bus of filteredBusList">
+        <!--The name of each bus stop printed by referencing the bus.name property-->
+        {{bus.name}}
+        {{bus.atcocode}}
+      </ion-item>
+    </ion-card>
   </ion-list>
 </ion-content>
