@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TrainServiceProvider} from '../../providers/train-service/train-service';
+import { TrainDetailPage } from '../train-detail/train-detail';
 
 @Component({
   selector: 'page-about',
@@ -34,5 +35,11 @@ export class TrainsPage {
           return (train.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
         });
       }
+    }
+
+    openItem(train){
+        this.navCtrl.push(TrainDetailPage, {
+        train : train
+      });
     }
   }
