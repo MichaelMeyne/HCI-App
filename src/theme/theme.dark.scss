@@ -1,0 +1,29 @@
+.dark-theme {
+
+$colors: (
+    primary:    #2C748E,
+    secondary:  #A1DAEF,
+    danger:     #f53d3d,
+    light:      #fff,
+    dark:       #013A4F
+);
+
+  ion-content {
+    background-color: color($colors, dark);
+    color: color($colors, light);
+  }
+
+  ion-item{
+    color: color($colors, light);
+  }
+
+ 
+  .toolbar-title {
+    color: color($colors, light);
+  }
+
+  .header .toolbar-background {
+    background-color: color($colors, dark);
+  }
+  
+}

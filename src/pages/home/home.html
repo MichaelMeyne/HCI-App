@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Buses</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bus" no-bounce>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-card>
+      <!--This part of code loops through the busList data structure located in home.ts and creates an ion-item for each entry-->
+      <ion-item item-md-divider-color="primary" *ngFor="let bus of busList">
+        <!--The name of each bus stop printed by referencing the bus.name property-->
+        {{bus.name}}
+        {{bus.atcocode}}
+      </ion-item>
+    </ion-card>
+  </ion-list>
+</ion-content>
+
+<!--
+
+
+</ion-content>-->
+
+<!--<div id="map" style="width:100%; height:100%;"></div>-->

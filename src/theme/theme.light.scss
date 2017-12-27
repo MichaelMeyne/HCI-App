@@ -1,0 +1,32 @@
+.light-theme {
+
+$colors: (
+    primary:    #2C748E,
+    secondary:  #A1DAEF,
+    danger:     #f53d3d,
+    light:      #f4f4f4,
+    dark:       #125972
+);
+
+ion-item{
+    background-color: #A1DAEF;
+    color:black,
+  }
+
+ion-content {
+    background-color: #42CAFD;
+  }
+
+  .toolbar-background {
+    background-color: #A1DAEF;
+  }
+
+  .toolbar-title {
+    color: black;
+  }
+  
+  .tabs-md-primary .tab-button, .tabs-md-primary .tab-button-icon {
+    color: black;
+    background-color: black;
+    }
+}

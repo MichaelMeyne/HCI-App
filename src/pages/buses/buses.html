@@ -1,0 +1,17 @@
+﻿<ion-header>
+  <ion-navbar>
+    <ion-title>Buses</ion-title>
+  </ion-navbar>
+  <!--><ion-buttons end>
+    <button ion-button icon-only (click)="filterTravel()"><ion-icon name="funnel"></ion-icon></button>
+  </ion-buttons>-->
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list no-lines>
+    <ion-item *ngFor="let bus of busList">
+          {{bus.name}}
+    </ion-item>
+  </ion-list>
+</ion-content>
