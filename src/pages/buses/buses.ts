@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BusServiceProvider} from '../../providers/bus-service/bus-service';
+import { BusDetailPage } from '../bus-detail/bus-detail';
 
 @Component({
   selector: 'page-buses',
@@ -37,6 +38,12 @@ export class BusesPage {
           return (bus.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
         });
       }
+    }
+
+    openItem(bus){
+        this.navCtrl.push(BusDetailPage, {
+        bus : bus
+      });
     }
 
 

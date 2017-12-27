@@ -9,6 +9,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { BusesPage } from '../pages/buses/buses';
 import { TrainsPage } from '../pages/trains/trains';
 import { SettingsPage } from '../pages/settings/settings';
+import { BusDetailPage } from '../pages/bus-detail/bus-detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,7 +24,8 @@ import { SettingsProvider } from '../providers/settings/settings';
     BusesPage,
     TrainsPage,
     SettingsPage,
-    TabsPage
+    TabsPage,
+    BusDetailPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { SettingsProvider } from '../providers/settings/settings';
     BusesPage,
     TrainsPage,
     SettingsPage,
-    TabsPage
+    TabsPage,
+    BusDetailPage
   ],
   providers: [
     StatusBar,

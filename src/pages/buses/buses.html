@@ -10,8 +10,10 @@
     <ion-card>
       <!--This part of code loops through the busList data structure located in home.ts and creates an ion-item for each entry-->
       <ion-item item-md-divider-color="primary" *ngFor="let bus of filteredBusList">
+        <button ion-item (click)="openItem(bus)">
         <!--The name of each bus stop printed by referencing the bus.name property-->
-        {{bus.name}}
+          {{bus.name}}
+        </button>
       </ion-item>
     </ion-card>
   </ion-list>
