@@ -52,6 +52,7 @@ export class BusesPage {
     }
 
     //LEAFLET STUFF -- http://tphangout.com/ionic-3-leaflet-maps-geolocation-markers/
+
     ionViewDidEnter() {
       if(this.map == undefined){
         this.loadmap();
@@ -93,9 +94,16 @@ export class BusesPage {
       this.busMarkerGroup.addLayer(marker);
     }
 
+    currentLocationIcon = L.icon({
+      iconUrl:  '../../assets/imgs/currentLocation.png',
+
+      iconSize:     [50, 50], // size of the icon
+      iconAnchor:   [25, 50], // point of the icon which will correspond to marker's location
+    });
+
     addCurrentLocationMarker(latitude, longitude){
       let markerGroup = leaflet.featureGroup();
-      let marker: any = leaflet.marker([latitude, longitude]).on('click', () => {
+      let marker: any = leaflet.marker([latitude, longitude], {icon: this.currentLocationIcon}).on('click', () => {
         alert('You Are Here');
       })
       markerGroup.addLayer(marker);
