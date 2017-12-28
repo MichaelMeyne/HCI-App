@@ -12,7 +12,8 @@
       <ion-item item-md-divider-color="primary" *ngFor="let train of filteredTrainList">
         <button ion-item (click)="openItem(train)">
         <!--The name of each bus stop printed by referencing the bus.name property-->
-          {{train.name}}
+          {{train.name}}<br>
+          {{train.description}}
         </button>
       </ion-item>
     </ion-card>

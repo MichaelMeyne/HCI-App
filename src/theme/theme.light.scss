@@ -1,20 +1,30 @@
 .light-theme {
 
-$colors: (
+  $colors: (
     primary:    #2C748E,
-    secondary:  #A1DAEF,
+    secondary:  #86C4FF,
     danger:     #f53d3d,
     light:      #f4f4f4,
     dark:       #125972
-);
+  );
 
-ion-item{
-    background-color: #A1DAEF;
-    color:black,
+  ion-item{
+    background-color: color($colors, secondary);
+    color: black;
+    /*
+    height: 72px;
+    left: 16px;
+    right: 16px;
+    top: 8px; */
   }
 
-ion-content {
-    background-color: #42CAFD;
+  button{
+    color: color($colors, light);
+    background-color: color($colors, secondary);
+  }
+
+  ion-content {
+    background-color: color($colors, secondary);
   }
 
   .toolbar-background {
@@ -24,7 +34,7 @@ ion-content {
   .toolbar-title {
     color: black;
   }
-  
+
   .tabs-md-primary .tab-button, .tabs-md-primary .tab-button-icon {
     color: black;
     background-color: black;

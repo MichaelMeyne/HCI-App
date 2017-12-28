@@ -15,12 +15,16 @@ $colors: (
 
   ion-item{
     color: color($colors, light);
+    /*
+    height: 72px;
+    left: 16px;
+    right: 16px;
+    top: 8px;*/
   }
 
   button{
     color: color($colors, light);
   }
-
 
   .toolbar-title {
     color: color($colors, light);

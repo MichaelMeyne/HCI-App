@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BusServiceProvider} from '../../providers/bus-service/bus-service';
 import { BusDetailPage } from '../bus-detail/bus-detail';
+import leaflet from 'leaflet';
 
 @Component({
   selector: 'page-buses',
@@ -13,6 +14,8 @@ export class BusesPage {
     //Data structure to store incoming bus data
     busList = [];
     filteredBusList = [];
+    map = null;
+    busMarkerGroup = leaflet.featureGroup();
 
     //Constructor for home.ts, adds Provider
     constructor(public navCtrl: NavController, private busService: BusServiceProvider) {
@@ -22,6 +25,7 @@ export class BusesPage {
     refreshList(newBusList){
       this.busList = newBusList;
       this.filteredBusList = newBusList;
+      this.refreshMarkers();
     }
 
     //Get method for the busList
@@ -38,6 +42,7 @@ export class BusesPage {
           return (bus.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
         });
       }
+      this.refreshMarkers();
     }
 
     openItem(bus){
@@ -46,8 +51,7 @@ export class BusesPage {
       });
     }
 
-
-    /*//LEAFLET STUFF -- http://tphangout.com/ionic-3-leaflet-maps-geolocation-markers/
+    //LEAFLET STUFF -- http://tphangout.com/ionic-3-leaflet-maps-geolocation-markers/
     ionViewDidEnter() {
       if(this.map == undefined){
         this.loadmap();
@@ -60,18 +64,41 @@ export class BusesPage {
         attributions: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
         maxZoom: 18
       }).addTo(this.map);
+      this.configureMap();
+    }
+
+    configureMap(){
       this.map.locate({
         setView: true,
         maxZoom: 10
       }).on('locationfound', (e) => {
-        let markerGroup = leaflet.featureGroup();
-        let marker: any = leaflet.marker([e.latitude, e.longitude]).on('click', () => {
-          alert('Marker clicked');
-        })
-        markerGroup.addLayer(marker);
-        this.map.addLayer(markerGroup);
-        }).on('locationerror', (err) => {
+        this.addCurrentLocationMarker(e.latitude, e.longitude);
+      }).on('locationerror', (err) => {
           alert(err.message);
       })
-    }*/
+      this.map.addLayer(this.busMarkerGroup);
+    }
+
+    refreshMarkers(){
+      this.busMarkerGroup.clearLayers();
+      this.filteredBusList.forEach((bus) => {
+          this.addBusMarker(bus);
+      });
+    }
+
+    addBusMarker(bus){
+      let marker: any = leaflet.marker([bus.latitude, bus.longitude]).on('click', () => {
+        this.openItem(bus);
+      })
+      this.busMarkerGroup.addLayer(marker);
+    }
+
+    addCurrentLocationMarker(latitude, longitude){
+      let markerGroup = leaflet.featureGroup();
+      let marker: any = leaflet.marker([latitude, longitude]).on('click', () => {
+        alert('You Are Here');
+      })
+      markerGroup.addLayer(marker);
+      this.map.addLayer(markerGroup);
+    }
 }
