@@ -105,7 +105,7 @@ export class BusesPage {
       this.busMarkerGroup.addLayer(marker);
     }
 
-    currentLocationIcon = L.icon({
+    currentLocationIcon = leaflet.icon({
       iconUrl:  '../../assets/imgs/currentLocation.png',
 
       iconSize:     [50, 50], // size of the icon
