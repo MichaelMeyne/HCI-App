@@ -24,21 +24,29 @@ export class BusServiceProvider {
   min_lon = this.default_lon - 0.1;
   max_lon = this.default_lon + 0.1;
 
-  private url : string = `https://transportapi.com/v3/uk/places.json?app_id=${this.app_id}&app_key=${this.app_key}&max_lat=${this.max_lat}&max_lon=${this.max_lon}&min_lat=${this.min_lat}&min_lon=${this.min_lon}&type=${this.place_type}`;
+  private stopUrl : string = `https://transportapi.com/v3/uk/places.json?app_id=${this.app_id}&app_key=${this.app_key}&max_lat=${this.max_lat}&max_lon=${this.max_lon}&min_lat=${this.min_lat}&min_lon=${this.min_lon}&type=${this.place_type}`;
+  private timetableUrl : string = 'https://transportapi.com/v3/uk/bus/stop/2090A20305/live.json?app_id=91676f07&app_key=e10dc441385db6f855e3e5ad29bcd6c8&group=route&nextbuses=yes';
 
   constructor(private http: Http) {
     console.log('Hello BusServiceProvider Provider');
   }
 
   getTravel(){
-    return this.http.get(this.url)
+    return this.http.get(this.stopUrl)
+    .do(this.logResponse)
+    .map(res => res.json())
+    .catch(this.catchError)
+  }
+
+  getTimetable(){
+    return this.http.get(this.timetableUrl)
     .do(this.logResponse)
     .map(res => res.json())
     .catch(this.catchError)
   }
 
   private logResponse(res : Response){
-    console.log(res);
+    //console.log(res);
   }
 
   private extractData(res : Response){

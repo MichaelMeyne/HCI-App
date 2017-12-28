@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { BusServiceProvider} from '../../providers/bus-service/bus-service';
 import leaflet from 'leaflet';
 
 /**
@@ -16,9 +17,25 @@ import leaflet from 'leaflet';
 export class BusDetailPage{
 
   bus = null;
+  busTimes = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private busService: BusServiceProvider) {
     this.bus = navParams.get('bus');
   }
 
+  ionViewDidEnter(){
+    this.getTimetable();
+  }
+
+  refreshList(newBusTimes){
+    this.busTimes = [];
+    Object.entries(newBusTimes).forEach(([routeName, routeTimes]) =>
+    {this.busTimes = this.busTimes.concat(routeTimes)});
+    console.log(this.busTimes);
+  }
+
+  //Get method for the busList
+  getTimetable(){
+    this.busService.getTimetable().subscribe(data => this.refreshList(data.departures));
+  }
 }
