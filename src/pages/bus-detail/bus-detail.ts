@@ -29,6 +29,9 @@ export class BusDetailPage{
 
   refreshList(newBusTimes){
     this.busTimes = [];
+    if(newBusTimes == null){
+      return;
+    }
     Object.entries(newBusTimes).forEach(([routeName, routeTimes]) =>
     {this.busTimes = this.busTimes.concat(routeTimes)});
     console.log(this.busTimes);
@@ -36,6 +39,6 @@ export class BusDetailPage{
 
   //Get method for the busList
   getTimetable(){
-    this.busService.getTimetable().subscribe(data => this.refreshList(data.departures));
+    this.busService.getTimetable(this.bus.atcocode).subscribe(data => this.refreshList(data.departures));
   }
 }
