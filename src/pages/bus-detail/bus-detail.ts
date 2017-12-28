@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BusServiceProvider} from '../../providers/bus-service/bus-service';
-import leaflet from 'leaflet';
 
 /**
  * Generated class for the BusDetailPage page.
@@ -32,13 +31,14 @@ export class BusDetailPage{
     if(newBusTimes == null){
       return;
     }
-    Object.entries(newBusTimes).forEach(([routeName, routeTimes]) =>
-    {this.busTimes = this.busTimes.concat(routeTimes)});
-    console.log(this.busTimes);
+    console.log(newBusTimes);
+    this.busTimes = this.busTimes.concat(newBusTimes.filter((routeTime) => {
+      return routeTime.dir == "outbound";
+    }));
   }
 
   //Get method for the busList
   getTimetable(){
-    this.busService.getTimetable(this.bus.atcocode).subscribe(data => this.refreshList(data.departures));
+    this.busService.getTimetable(this.bus.atcocode).subscribe(data => this.refreshList(data.departures.all));
   }
 }

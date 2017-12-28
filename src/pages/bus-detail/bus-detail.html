@@ -17,7 +17,8 @@
       <!--This part of code loops through the busList data structure located in home.ts and creates an ion-item for each entry-->
       <ion-item item-md-divider-color="primary" *ngFor="let time of busTimes">
         <!--The name of each bus stop printed by referencing the bus.name property-->
-          {{time.aimed_departure_time}}
+          {{time.aimed_departure_time}} <br>
+          {{time.dir}}
       </ion-item>
     </ion-card>
   </ion-list>

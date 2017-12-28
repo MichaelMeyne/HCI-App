@@ -26,7 +26,7 @@ export class BusServiceProvider {
 
   private stopUrl : string = `https://transportapi.com/v3/uk/places.json?app_id=${this.app_id}&app_key=${this.app_key}&max_lat=${this.max_lat}&max_lon=${this.max_lon}&min_lat=${this.min_lat}&min_lon=${this.min_lon}&type=${this.place_type}`;
   private timetableUrl(atcocode){
-    return `https://transportapi.com/v3/uk/bus/stop/${atcocode}/live.json?app_id=${this.app_id}&app_key=${this.app_key}&group=route&nextbuses=yes`;
+    return `https://transportapi.com/v3/uk/bus/stop/${atcocode}/live.json?app_id=${this.app_id}&app_key=${this.app_key}&group=no&nextbuses=no`;
   }
 
   constructor(private http: Http) {
