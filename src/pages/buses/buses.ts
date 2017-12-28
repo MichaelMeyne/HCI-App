@@ -19,7 +19,7 @@ export class BusesPage {
 
     //Constructor for home.ts, adds Provider
     constructor(public navCtrl: NavController, private busService: BusServiceProvider) {
-      this.getTravel();
+
     }
 
     refreshList(newBusList){
@@ -57,6 +57,7 @@ export class BusesPage {
       if(this.map == undefined){
         this.loadmap();
       }
+      this.getTravel();
     }
 
     loadmap() {
@@ -85,6 +86,16 @@ export class BusesPage {
       this.filteredBusList.forEach((bus) => {
           this.addBusMarker(bus);
       });
+      this.flyToMarkers()
+    }
+
+    flyToMarkers(){
+      if(this.filteredBusList.length > 0){
+        this.map.flyToBounds(this.busMarkerGroup.getBounds(), { padding : [50, 50] });
+      } else {
+        this.map.flyToBounds([[this.busService.min_lat, this.busService.min_lon],
+                              [this.busService.max_lat, this.busService.max_lon]], { padding : [50, 50] });
+      }
     }
 
     addBusMarker(bus){

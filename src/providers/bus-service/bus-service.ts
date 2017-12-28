@@ -19,10 +19,10 @@ export class BusServiceProvider {
   private place_type = "bus_stop";
   private default_lat = 52.6309;
   private default_lon = 1.2974;
-  private min_lat = this.default_lat - 0.1;
-  private max_lat = this.default_lat + 0.1;
-  private min_lon = this.default_lon - 0.1;
-  private max_lon = this.default_lon + 0.1;
+  min_lat = this.default_lat - 0.1;
+  max_lat = this.default_lat + 0.1;
+  min_lon = this.default_lon - 0.1;
+  max_lon = this.default_lon + 0.1;
 
   private url : string = `https://transportapi.com/v3/uk/places.json?app_id=${this.app_id}&app_key=${this.app_key}&max_lat=${this.max_lat}&max_lon=${this.max_lon}&min_lat=${this.min_lat}&min_lon=${this.min_lon}&type=${this.place_type}`;
 
