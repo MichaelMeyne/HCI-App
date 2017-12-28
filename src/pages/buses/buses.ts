@@ -25,7 +25,9 @@ export class BusesPage {
     refreshList(newBusList){
       this.busList = newBusList;
       this.filteredBusList = newBusList;
-      this.refreshMarkers();
+      if(this.map){
+        this.refreshMarkers();
+      }
     }
 
     //Get method for the busList
@@ -55,7 +57,7 @@ export class BusesPage {
 
     ionViewDidEnter() {
       if(this.map == undefined){
-        this.loadmap();
+        //this.loadmap();
       }
       this.getTravel();
     }
