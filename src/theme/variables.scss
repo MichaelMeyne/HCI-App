@@ -58,6 +58,10 @@ $colors: (
   right : 0px;
 }
 
+h3{
+  padding : 2px;
+}
+
 //Toolbar colour
 $background-color: color($colors, dark);
 $toolbar-md-title-text-color: map-get($colors, light);

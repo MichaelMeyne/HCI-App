@@ -3,10 +3,10 @@
   $colors: (
     primary:    #2C748E,
     secondary:  #86C4FF,
+    tertiary:   #A1DAEF,
     danger:     #f53d3d,
     light:      #f4f4f4,
-    dark:       #125972,
-    tertiary:   #A1DAEF,
+    dark:       #125972
   );
 
   ion-content {
@@ -24,6 +24,10 @@
     top: 8px; */
   }
 
+  ion-toggle{
+    color : black;
+  }
+
   h3{
     color: color($colors, light);
   }
@@ -35,14 +39,12 @@
 
   .leftAlign{
     color : black;
-    color: color($colors, light);
   }
 
   button{
     color: black;
     background-color: color($colors, secondary);
   }
-
 
   .toolbar-background {
     background-color: color($colors, tertiary);
@@ -58,8 +60,8 @@
   }
 
   .mapButton{
-    color: color($colors, secondary);
-    background-color: color($colors, dark);
+    color: color($colors, primary);
+    background-color: color($colors, tertiary);
     font-size: 18px;
     font-weight: 500;
   }
