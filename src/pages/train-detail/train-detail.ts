@@ -26,7 +26,7 @@ export class TrainDetailPage {
     this.getTimetable();
   }
 
-  getTimetable(onComplete: () => void){
+  getTimetable(onComplete: () => void = () => {}){
     this.trainService.getTimetable(this.train.station_code)
     .finally(onComplete)
     .subscribe(data => this.refreshList(data.departures));

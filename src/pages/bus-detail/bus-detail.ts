@@ -27,7 +27,7 @@ export class BusDetailPage{
   }
 
   //Get method for the busList
-  getTimetable(onComplete: () => void){
+  getTimetable(onComplete: () => void = () => {}){
     this.busService.getTimetable(this.bus.atcocode)
     .finally(onComplete)
     .subscribe(data => this.refreshList(data.departures.all));
