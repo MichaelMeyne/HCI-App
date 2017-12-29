@@ -22,8 +22,13 @@ export class TrainsPage {
     }
 
     refreshList(newTrainList){
-      this.trainList = newTrainList;
-      this.filteredTrainList = newTrainList;
+      if(newTrainList == null){
+        this.trainList = [];
+        this.filteredTrainList = [];
+      }else{
+        this.trainList = newTrainList;
+        this.filteredTrainList = newTrainList;
+      }
       this.refreshMarkers();
     }
 

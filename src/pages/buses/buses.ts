@@ -25,8 +25,13 @@ export class BusesPage {
     }
 
     refreshList(newBusList){
-      this.busList = newBusList;
-      this.filteredBusList = newBusList;
+      if(newBusList == null){
+        this.busList = [];
+        this.filteredBusList = [];
+      }else{
+        this.busList = newBusList;
+        this.filteredBusList = newBusList;
+      }
       this.refreshMarkers();
     }
 
