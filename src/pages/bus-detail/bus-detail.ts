@@ -31,7 +31,6 @@ export class BusDetailPage{
     if(newBusTimes == null){
       return;
     }
-    console.log(newBusTimes);
     this.busTimes = this.busTimes.concat(newBusTimes.filter((routeTime) => {
       return routeTime.dir == "outbound";
     }));

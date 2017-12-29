@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TrainServiceProvider} from '../../providers/train-service/train-service';
 
 /**
  * Generated class for the TrainDetailPage page.
@@ -14,11 +15,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TrainDetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  train = null;
+  trainTimes = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public trainService : TrainServiceProvider) {
+    this.train = navParams.get('train');
+  }
+
+  getTimetable(){
+    this.trainService.getTimetable(this.train.station_code).subscribe(data => this.refreshList(data.departures));
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TrainDetailPage');
+    this.getTimetable();
   }
 
+  refreshList(departures){
+    this.trainTimes = [];
+    if(departures == null || departures.all == null){
+      return;
+    }
+    this.trainTimes = this.trainTimes.concat(departures.all);
+  }
 }

@@ -25,6 +25,9 @@ export class TrainServiceProvider {
   private max_lon = this.default_lon + 0.1;
 
   private url : string = `https://transportapi.com/v3/uk/places.json?app_id=${this.app_id}&app_key=${this.app_key}&max_lat=${this.max_lat}&max_lon=${this.max_lon}&min_lat=${this.min_lat}&min_lon=${this.min_lon}&type=${this.place_type}`;
+  private timetableUrl(station){
+    return `https://transportapi.com/v3/uk/train/station/${station}/live.json?app_id=${this.app_id}&app_key=${this.app_key}&darwin=false&train_status=passenger&type=departure`;
+  }
 
   constructor(private http: Http) {
     console.log('Hello TrainServiceProvider Provider');
@@ -34,6 +37,13 @@ export class TrainServiceProvider {
     return this.http.get(this.url)
     .do(this.logResponse)
     .map(this.extractData)
+    .catch(this.catchError)
+  }
+
+  getTimetable(station){
+    return this.http.get(this.timetableUrl(station))
+    .do(this.logResponse)
+    .map(res => res.json())
     .catch(this.catchError)
   }
 
