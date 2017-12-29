@@ -72,18 +72,16 @@ $background-color: color($colors, dark);
 $toolbar-md-title-text-color: color($colors, light);
 
 //Colours of inactive tabs (icon and text)
-$tabs-md-tab-color-inactive:  color($colors, secondary);
+$tabs-md-tab-color-inactive: color($colors, secondary);
 $tabs-tab-color-inactive: color($colors, secondary);
 $tabs-md-tab-icon-color: color($colors, primary);
 
 //Colours of active tabs (icon and text)
 $tabs-md-tab-text-color-active: color($colors, light);
-$tabs-md-tab-icon-color-active: map-get($colors, light);
+$tabs-md-tab-icon-color-active: color($colors, light);
 
 //Tab background colour
 $tabs-background: color($colors, dark);
-
-
 
 // App iOS Variables
 // --------------------------------------------------
