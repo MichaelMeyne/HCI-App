@@ -31,13 +31,23 @@ export class BusDetailPage{
     if(newBusTimes == null){
       return;
     }
-    this.busTimes = this.busTimes.concat(newBusTimes.filter((routeTime) => {
-      return routeTime.dir == "outbound";
-    }));
+    this.busTimes = this.busTimes.concat(newBusTimes);
+    //   .filter((routeTime) => {
+    //   return routeTime.dir == "outbound";
+    // }));
   }
 
   //Get method for the busList
-  getTimetable(){
-    this.busService.getTimetable(this.bus.atcocode).subscribe(data => this.refreshList(data.departures.all));
+  getTimetable(onComplete: () => void){
+    this.busService.getTimetable(this.bus.atcocode)
+    .finally(onComplete)
+    .subscribe(data => this.refreshList(data.departures.all));
   }
+
+  doRefresh(refresher) {
+    this.getTimetable(() => {
+      refresher.complete();
+    });
+  }
+
 }

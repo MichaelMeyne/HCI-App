@@ -11,6 +11,10 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+    </ion-refresher-content>
+  </ion-refresher>
   <ion-list>
     <ion-card>
       <!--This part of code loops through the busList data structure located in home.ts and creates an ion-item for each entry-->
