@@ -22,12 +22,14 @@ export class TrainDetailPage {
     this.train = navParams.get('train');
   }
 
-  getTimetable(){
-    this.trainService.getTimetable(this.train.station_code).subscribe(data => this.refreshList(data.departures));
-  }
-
   ionViewDidLoad() {
     this.getTimetable();
+  }
+
+  getTimetable(onComplete: () => void){
+    this.trainService.getTimetable(this.train.station_code)
+    .finally(onComplete)
+    .subscribe(data => this.refreshList(data.departures));
   }
 
   refreshList(departures){
@@ -36,5 +38,11 @@ export class TrainDetailPage {
       return;
     }
     this.trainTimes = this.trainTimes.concat(departures.all);
+  }
+
+  doRefresh(refresher) {
+    this.getTimetable(() => {
+      refresher.complete();
+    });
   }
 }

@@ -26,22 +26,19 @@ export class BusDetailPage{
     this.getTimetable();
   }
 
+  //Get method for the busList
+  getTimetable(onComplete: () => void){
+    this.busService.getTimetable(this.bus.atcocode)
+    .finally(onComplete)
+    .subscribe(data => this.refreshList(data.departures.all));
+  }
+
   refreshList(newBusTimes){
     this.busTimes = [];
     if(newBusTimes == null){
       return;
     }
     this.busTimes = this.busTimes.concat(newBusTimes);
-    //   .filter((routeTime) => {
-    //   return routeTime.dir == "outbound";
-    // }));
-  }
-
-  //Get method for the busList
-  getTimetable(onComplete: () => void){
-    this.busService.getTimetable(this.bus.atcocode)
-    .finally(onComplete)
-    .subscribe(data => this.refreshList(data.departures.all));
   }
 
   doRefresh(refresher) {
