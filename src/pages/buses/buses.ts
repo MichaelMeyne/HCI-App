@@ -14,6 +14,7 @@ export class BusesPage {
     //Data structure to store incoming bus data
     busList = [];
     filteredBusList = [];
+    showMap = true;
     map = null;
     busMarkerGroup = leaflet.featureGroup();
 
@@ -79,6 +80,13 @@ export class BusesPage {
           alert(err.message);
       })
       this.map.addLayer(this.busMarkerGroup);
+    }
+
+    toggleMap() {
+      this.showMap = !this.showMap;
+      if(this.showMap){
+        setTimeout(() => { this.loadmap(); this.getTravel(); }, 100);
+      }
     }
 
     refreshMarkers(){
