@@ -10,15 +10,14 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
   <ion-list>
     <ion-card>
       <!--This part of code loops through the busList data structure located in home.ts and creates an ion-item for each entry-->
-      <ion-item item-md-divider-color="primary" *ngFor="let time of busTimes">
+      <ion-item *ngFor="let time of busTimes">
         <!--The name of each bus stop printed by referencing the bus.name property-->
-          {{time.aimed_departure_time}} <br>
-          {{time.dir}}
+          <h3 class = 'leftAlign'>{{time.line}} - {{time.direction}}</h3>
+          <h3 class = 'rightAlign'>{{time.aimed_departure_time}}</h3>
       </ion-item>
     </ion-card>
   </ion-list>
