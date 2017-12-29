@@ -12,16 +12,12 @@
   <div *ngIf="showMap; else elseBlock" id="trainMap" style="width:100%; height:90%;"></div>
   <ng-template #elseBlock>
     <ion-list>
-      <ion-card>
-        <!--This part of code loops through the busList data structure located in home.ts and creates an ion-item for each entry-->
-        <ion-item item-md-divider-color="primary" *ngFor="let train of filteredTrainList">
-          <button ion-item (click)="openItem(train)">
+      <!--This part of code loops through the busList data structure located in home.ts and creates an ion-item for each entry-->
+        <button ion-item (click)="openItem(train)" *ngFor="let train of filteredTrainList">
           <!--The name of each bus stop printed by referencing the bus.name property-->
-            {{train.name}}<br>
-            {{train.description}}
-          </button>
-        </ion-item>
-      </ion-card>
+          {{train.name}}<br>
+          {{train.description}}
+        </button>
     </ion-list>
   </ng-template>
 </ion-content>

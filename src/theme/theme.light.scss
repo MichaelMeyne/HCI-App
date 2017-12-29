@@ -17,6 +17,7 @@
   ion-item{
     background-color: color($colors, secondary);
     color: black;
+    padding: 5px;
     /*
     height: 72px;
     left: 16px;
@@ -30,6 +31,8 @@
 
   h3{
     color: color($colors, light);
+    padding : 5px;
+    font-size: 40px;
   }
 
   .rightAlign{
@@ -54,10 +57,12 @@
     color: black;
   }
 
-  .tabs-md-primary .tab-button, .tabs-md-primary .tab-button-icon {
-    color: black;
-    background-color: black;
+  .header {
+    background-color: color($colors, dark);
   }
+
+  //Tab background colour
+  $tabs-background: color($colors, dark);
 
   .mapButton{
     color: color($colors, primary);

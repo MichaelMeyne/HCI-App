@@ -2,18 +2,21 @@
 
   $colors: (
     primary:    #2C748E,
-    secondary:  #A1DAEF,
+    secondary:  #1B5B72,
+    tertiary:   #1D3E59,
+    textCol:    #348AA7,
     danger:     #f53d3d,
     light:      #fff,
     dark:       #013A4F
   );
 
   ion-content {
-    background-color: color($colors, dark);
+    background-color: color($colors, tertiary);
     color: color($colors, light);
   }
 
   ion-item{
+    background-color: color($colors, secondary);
     color: color($colors, light);
     padding: 5px;
     /*
@@ -23,9 +26,20 @@
     top: 8px;*/
   }
 
+  ion-toggle{
+    color : black;
+  }
+
+  h3{
+    color: color($colors, light);
+    padding : 5px;
+    font-size: 15px;
+  }
+
   .rightAlign{
     color: color($colors, light);
     float : right;
+    font-size: 15px;
   }
 
   .leftAlign{
@@ -34,21 +48,34 @@
 
   button{
     color: color($colors, light);
+    background-color: color($colors, secondary);
+  }
+
+  .toolbar-background {
+    background-color: color($colors, tertiary);
   }
 
   .toolbar-title {
     color: color($colors, light);
   }
 
-  .header .toolbar-background {
+  .header {
     background-color: color($colors, dark);
   }
 
+  //Tab background colour
+  $tabs-background: color($colors, light);
+
   .mapButton{
-    color: color($colors, secondary);
-    background-color: color($colors, dark);
+    color: color($colors, textCol);
+    background-color: color($colors, tertiary);
     font-size: 18px;
     font-weight: 500;
+  }
+
+  .themeSwitch{
+    background-color: color($colors, tertiary);
+    color: color($colors, textCol);
   }
 
 }

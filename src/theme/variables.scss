@@ -33,6 +33,7 @@ $app-direction: ltr;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+
 $colors: (
   primary:    #2C748E,
   secondary:  #A1DAEF,
@@ -52,19 +53,23 @@ $colors: (
 
 .leftAlign{
   left : 0px;
+  font-size: 15px;
 }
 
 .rightAlign{
   right : 0px;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 h3{
-  padding : 2px;
+  padding : 5px;
+  font-size: 15px;
 }
 
 //Toolbar colour
 $background-color: color($colors, dark);
-$toolbar-md-title-text-color: map-get($colors, light);
+$toolbar-md-title-text-color: color($colors, light);
 
 //Colours of inactive tabs (icon and text)
 $tabs-md-tab-color-inactive:  color($colors, secondary);

@@ -118,7 +118,7 @@ export class TrainsPage {
     }
 
     currentLocationIcon = leaflet.icon({
-      iconUrl:  '../../assets/imgs/currentLocation.png',
+      iconUrl:  'assets/imgs/currentLocation.png',
 
       iconSize:     [50, 50], // size of the icon
       iconAnchor:   [25, 50], // point of the icon which will correspond to marker's location

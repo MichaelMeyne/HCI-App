@@ -16,13 +16,11 @@
     </ion-refresher-content>
   </ion-refresher>
   <ion-list>
-    <ion-card>
       <!--This part of code loops through the busList data structure located in home.ts and creates an ion-item for each entry-->
       <ion-item *ngFor="let time of trainTimes">
         <!--The name of each bus stop printed by referencing the bus.name property-->
           <h3 class = 'leftAlign'>{{time.origin_name}} - {{time.destination_name}}</h3>
           <h3 class = 'rightAlign'>{{time.aimed_departure_time}}</h3>
       </ion-item>
-    </ion-card>
   </ion-list>
 </ion-content>
