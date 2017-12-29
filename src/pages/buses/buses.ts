@@ -55,7 +55,7 @@ export class BusesPage {
 
     ionViewDidEnter() {
       if(this.map == undefined){
-        //this.loadmap();
+        this.loadmap();
       }
       this.getTravel();
     }
