@@ -2,7 +2,7 @@
   <ion-navbar>
     <ion-title>Buses</ion-title>
     <ion-buttons end>
-      <ion-toggle (ionChange)="toggleMap()"></ion-toggle>
+      <button class="mapButton" (click) ="toggleMap()">{{mapOption}}</button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>

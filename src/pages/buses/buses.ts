@@ -17,6 +17,7 @@ export class BusesPage {
     showMap = true;
     map = null;
     busMarkerGroup = leaflet.featureGroup();
+    mapOption = "Hide Map";
 
     //Constructor for home.ts, adds Provider
     constructor(public navCtrl: NavController, private busService: BusServiceProvider) {
@@ -85,8 +86,13 @@ export class BusesPage {
     toggleMap() {
       this.showMap = !this.showMap;
       if(this.showMap){
-        setTimeout(() => { this.loadmap(); this.getTravel(); }, 100);
+        setTimeout(() => { this.loadmap(); this.getTravel(); }, 25);
+        this.mapOption = "Hide Map";
       }
+      else{
+        this.mapOption = "Show Map";
+      }
+
     }
 
     refreshMarkers(){

@@ -43,4 +43,11 @@
     background-color: color($colors, dark);
   }
 
+  .mapButton{
+    color: color($colors, secondary);
+    background-color: color($colors, dark);
+    font-size: 18px;
+    font-weight: 500;
+  }
+
 }
