@@ -41,6 +41,22 @@ $colors: (
   dark:       #125972
 );
 
+.sameLine{
+  position : relative;
+}
+
+.sameLine div{
+  display : inline-block;
+  position : absolute;
+}
+
+.leftAlign{
+  left : 0px;
+}
+
+.rightAlign{
+  right : 0px;
+}
 
 //Toolbar colour
 $background-color: color($colors, dark);

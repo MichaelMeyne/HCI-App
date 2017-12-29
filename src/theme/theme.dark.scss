@@ -1,12 +1,12 @@
 .dark-theme {
 
-$colors: (
+  $colors: (
     primary:    #2C748E,
     secondary:  #A1DAEF,
     danger:     #f53d3d,
     light:      #fff,
     dark:       #013A4F
-);
+  );
 
   ion-content {
     background-color: color($colors, dark);
@@ -20,6 +20,15 @@ $colors: (
     left: 16px;
     right: 16px;
     top: 8px;*/
+  }
+
+  .rightAlign{
+    color: color($colors, light);
+    float : right;
+  }
+
+  .leftAlign{
+    color: color($colors, light);
   }
 
   button{
