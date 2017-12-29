@@ -25,9 +25,7 @@ export class BusesPage {
     refreshList(newBusList){
       this.busList = newBusList;
       this.filteredBusList = newBusList;
-      if(this.map){
-        this.refreshMarkers();
-      }
+      this.refreshMarkers();
     }
 
     //Get method for the busList
@@ -84,6 +82,9 @@ export class BusesPage {
     }
 
     refreshMarkers(){
+      if(this.map == undefined){
+        return;
+      }
       this.busMarkerGroup.clearLayers();
       this.filteredBusList.forEach((bus) => {
           this.addBusMarker(bus);
